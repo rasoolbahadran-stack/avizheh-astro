@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout page="index.html" ldWebSite scripts={['home.js']}>
+<!-- اسلایدر اصلی -->
+  <div class="container">
+    <section class="hero" id="hero" aria-label="اسلایدر معرفی">
+      <div class="hero-slide on">
+        <img src="assets/img/hero/hero-1-1.webp" alt="مجموعه جدید ست‌های ساتن آویژه" fetchpriority="high" width="1600" height="1067">
+        <div class="hero-content">
+          <span class="hero-kicker">تازه‌های این فصل</span>
+          <h2 class="hero-title">درخششی که <em>شب‌های شما</em> می‌ارزد</h2>
+          <p class="hero-text">ست‌های ساتن و توری با گلدوزی دست‌ساز؛ لطیف روی پوست، لوکس در جزئیات و دقیقاً اندازه‌ی شما.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="shop.html?cat=women-underwear">مشاهده مجموعه</a>
+            <a class="btn btn-ghost btn-lg" href="shop.html?sale=1">شگفت‌انگیزها</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <img src="assets/img/hero/hero-2-1.webp" alt="لباس راحتی و استایل خانه" loading="lazy" width="1600" height="1067">
+        <div class="hero-content">
+          <span class="hero-kicker">استایل خانه</span>
+          <h2 class="hero-title">راحتیِ <em>سراسر روز</em>، حتی وقتی مهمان داری</h2>
+          <p class="hero-text">مجموعه لباس راحتی زنانه و مردانه آویژه؛ پارچه‌های تنفسی، برش‌های آزاد و رنگ‌هایی که هر خانه‌ای را گرم می‌کند.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="shop.html?cat=loungewear">خرید لباس راحتی</a>
+            <a class="btn btn-ghost btn-lg" href="blog.html">مقالات استایل</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide">
+        <img src="assets/img/hero/hero-3-1.webp" alt="ست‌های پرفروش آویژه با تخفیف ویژه" loading="lazy" width="1600" height="1067">
+        <div class="hero-content">
+          <span class="hero-kicker">فروش ویژه هفته</span>
+          <h2 class="hero-title">تا <em>۵۵٪ تخفیف</em> روی پرفروش‌ها</h2>
+          <p class="hero-text">فرصت محدود؛ پک‌های پنبه، جوراب‌شلواری و گن‌های فرم‌دهنده با قیمتی که دوباره تکرار نمی‌شود.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary btn-lg" href="shop.html?sale=1">خرید با تخفیف</a>
+          </div>
+        </div>
+      </div>
+      <button class="hero-arrow next" id="hero-next" aria-label="اسلاید بعدی"></button>
+      <button class="hero-arrow prev" id="hero-prev" aria-label="اسلاید قبلی"></button>
+      <div class="hero-dots" id="hero-dots" role="tablist"></div>
+    </section>
+  </div>
+
+  <!-- بنرهای کمپین -->
+  <div class="container section tight rvl">
+    <div class="banner-grid">
+      <a class="bnr" href="shop.html?cat=women-underwear">
+        <img src="assets/img/banners/camp-1-1.webp" alt="کمپین رنگ‌های صورتی — لباس زیر زنانه" loading="lazy" width="1600" height="1067">
+        <div class="bnr-body"><div class="bnr-kicker">کمپین پاستل</div><div class="bnr-title">لطیف‌های صورتی</div><div class="bnr-sub">ست‌های زیر با ۳۰٪ تخفیف</div><span class="bnr-btn">خرید کنید <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></span></div>
+      </a>
+      <a class="bnr" href="shop.html?cat=men-underwear">
+        <img src="assets/img/banners/camp-2-1.webp" alt="پک‌های پنبه مردانه" loading="lazy" width="1600" height="1067">
+        <div class="bnr-body"><div class="bnr-kicker">ضروری‌های مردانه</div><div class="bnr-title">پک‌های پنبه خالص</div><div class="bnr-sub">بوکسر و تی‌شرت زیر — پک ۳ عددی</div><span class="bnr-btn">خرید کنید <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></span></div>
+      </a>
+      <a class="bnr wide" href="shop.html?cat=loungewear">
+        <img src="assets/img/banners/season-summer-1.webp" alt="مجموعه تابستانه لباس راحتی" loading="lazy" width="1600" height="1067">
+        <div class="bnr-body"><div class="bnr-kicker">مجموعه فصل</div><div class="bnr-title">تابستانِ آرام</div><div class="bnr-sub">الیاف سبک، رنگ‌های روشن و ست‌های چهارفصل — تا پایان ماه با ۲۵٪ تخفیف</div><span class="bnr-btn">مشاهده مجموعه <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></span></div>
+      </a>
+      <a class="bnr wide" href="shop.html?cat=seasonal">
+        <img src="assets/img/banners/season-winter-1.webp" alt="مجموعه زمستانه و حریر" loading="lazy" width="1600" height="1067">
+        <div class="bnr-body"><div class="bnr-kicker">آماده‌ی سرما</div><div class="bnr-title">گرمای زیر لباس</div><div class="bnr-sub">ست‌های حریر و جوراب‌های ضخیم زمستانی، قبل از اولین برف بخرید</div><span class="bnr-btn">مشاهده مجموعه <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+
+  <!-- پیشنهاد شگفت‌انگیز -->
+  <div class="container section rvl">
+    <div class="deal-wrap">
+      <div class="deal-head">
+        <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c4.97 0 7-3.58 7-7 0-4.97-4-6.5-4-10.5-2.5 1-4 3.5-4 5.5-1.5-.5-2-2-2-3.5-2 1.7-4 4.6-4 8.5 0 3.42 2.03 7 7 7z"/></svg> پیشنهاد شگفت‌انگیز</h2>
+        <div class="deal-count">پایان پیشنهاد: <span class="tbox" id="dd-h">۰۰</span>:<span class="tbox" id="dd-m">۰۰</span>:<span class="tbox" id="dd-s">۰۰</span></div>
+      </div>
+      <div class="deal-row" id="deal-row"></div>
+      <div style="text-align:center;margin-top:20px"><a class="btn btn-ghost btn-lg" href="shop.html?sale=1" style="border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.12)">مشاهده همه تخفیف‌ها</a></div>
+    </div>
+  </div>
+
+  <!-- دسته‌بندی‌های محبوب -->
+  <div class="container section rvl">
+    <div class="sec-head">
+      <div><h2>دسته‌بندی‌های محبوب</h2><div class="sub">از هر دسته، محبوب‌ترین انتخاب‌ها را ببینید</div></div>
+      <a class="link-more" href="shop.html">همه محصولات <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+    </div>
+    <div class="catgrid" id="cat-grid"></div>
+  </div>
+
+  <!-- محصولات جدید -->
+  <div class="container section rvl">
+    <div class="sec-head">
+      <div><h2>تازه‌ رسیده‌ها</h2><div class="sub">جدیدترین محصولات این هفته در آویژه</div></div>
+      <a class="link-more" href="shop.html?sort=new">مشاهده همه <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+    </div>
+    <div class="pgrid" id="rail-new"></div>
+  </div>
+
+  <!-- پرفروش‌ها -->
+  <div class="container section rvl">
+    <div class="sec-head">
+      <div><h2>پرفروش‌ترین‌های آویژه</h2><div class="sub">انتخاب هزاران مشتری در ماه‌های اخیر</div></div>
+      <a class="link-more" href="shop.html?sort=best">مشاهده همه <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+    </div>
+    <div class="best-grid" id="rail-best"></div>
+  </div>
+
+  <!-- مزایای خرید -->
+  <div class="container section rvl">
+    <div class="benefits">
+      <div class="ben"><div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><b>ارسال سریع و رایگان</b><p>ارسال رایگان برای خرید بالای ۱٫۵ میلیون تومان به سراسر کشور</p></div>
+      <div class="ben"><div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><b>ضمانت اصالت کالا</b><p>همه محصولات با ضمانت اصالت جنس و سلامت فیزیکی ارسال می‌شوند</p></div>
+      <div class="ben"><div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div><b>۷ روز مرجوعی آسان</b><p>بدون قید و شرط؛ اگر راضی نبودید، ما برمی‌گردانیم</p></div>
+      <div class="ben"><div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div><b>مشاوره سایز واقعی</b><p>پشتیبانی ما تا انتخاب دقیق‌ترین سایز کنارتان است</p></div>
+    </div>
+  </div>
+
+  <!-- پربازدیدها -->
+  <div class="container section rvl">
+    <div class="sec-head">
+      <div><h2>پربازدیدترین محصولات</h2><div class="sub">محبوب‌ها بر اساس بازدید واقعی مشتریان</div></div>
+    </div>
+    <div class="hscroll" id="rail-viewed"></div>
+  </div>
+
+  <!-- نظرات مشتریان -->
+  <div class="container section rvl">
+    <div class="sec-head">
+      <div><h2>مشتریان آویژه چه می‌گویند؟</h2><div class="sub">نظر واقعی خریداران پس از دریافت سفارش</div></div>
+    </div>
+    <div class="tst-row" id="tst-row"></div>
+  </div>
+
+  <!-- خبرنامه -->
+  <div class="container section rvl">
+    <div class="newsletter">
+      <div>
+        <h2 class="nl-title">عضو باشگاه مشتریان آویژه شوید</h2>
+        <p class="nl-text">با عضویت در خبرنامه، پیشنهادهای هفتگی و کدهای تخفیف اختصاصی را زودتر از همه دریافت می‌کنید.</p>
+      </div>
+      <div>
+        <form class="nl-form" novalidate>
+          <input type="email" placeholder="ایمیل خود را وارد کنید…" aria-label="ایمیل برای خبرنامه" required>
+          <button class="btn" type="submit">عضویت</button>
+        </form>
+        <p class="nl-note">با عضویت، شرایط استفاده و سیاست حفظ حریم خصوصی را می‌پذیرید. هر زمان خواستید، لغو عضویت رایگان است.</p>
+      </div>
+    </div>
+  </div>
+</Layout>

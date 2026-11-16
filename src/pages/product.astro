@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="جزئیات محصول | آویژه" desc="صفحه محصول با گالری بزرگ‌نمایی، انتخاب رنگ و سایز با موجودی واقعی، جدول سایزبندی، مشخصات جنس و دیدگاه کاربران." page="product.html" shopCss scripts={['home.js','product.js']}>
+<div class="container"><nav class="breadcrumb" id="bc" aria-label="مسیر صفحه"><a href="index.html">خانه</a></nav></div>
+<div class="container">
+<div class="pdp" id="pdp">
+  <div class="gal">
+    <div class="gal-thumbs" id="gal-thumbs"></div>
+    <div class="gal-main" id="gal-main">
+      <img id="gal-main-img" src="" alt="تصویر محصول" width="1000" height="1333">
+      <div class="gal-zoom-hint">برای بزرگ‌نمایی، ماوس را روی تصویر ببرید</div>
+      <div class="gal-badges" id="pdp-badges"></div>
+    </div>
+  </div>
+  <div class="pdp-info-col" style="min-width:0">
+    <span class="pdp-brand" id="pdp-brand"></span>
+    <h1 class="pdp-title" id="pdp-title"></h1>
+    <div class="pdp-rating" id="pdp-rating"></div>
+    <div class="pdp-price" style="margin-top:16px">
+      <span class="cur" id="pdp-price-cur"></span>
+    </div>
+    <div style="margin-top:12px" id="pdp-stock"></div>
+    <div class="vgroup" style="margin-top:18px"><h4>انتخاب رنگ: <span class="sel-val" id="pdp-color-val"></span></h4><div class="vopts" id="pdp-colors"></div></div>
+    <div class="vgroup" style="margin-top:18px"><h4>انتخاب سایز: <span class="sel-val" id="pdp-size-val"></span>
+      <button type="button" id="pdp-sizeguide" style="color:var(--primary);font-weight:700;font-size:12px;display:inline-flex;gap:5px;align-items:center">جدول سایزبندی</button></h4>
+      <div class="vopts" id="pdp-sizes"></div></div>
+    <div style="display:flex;align-items:center;gap:14px;margin-top:20px">
+      <div class="qty"><button type="button" id="pdp-qty-minus" aria-label="کاهش تعداد">−</button><input id="pdp-qty-in" type="number" value="1" min="1" aria-label="تعداد"><button type="button" id="pdp-qty-plus" aria-label="افزایش تعداد">+</button></div>
+      <span class="qty-hint">حداکثر خرید طبق موجودی انبار</span>
+    </div>
+    <div class="pdp-actions" style="margin-top:18px">
+      <button class="btn btn-primary btn-lg" id="pdp-buy-btn">افزودن به سبد خرید</button>
+      <button class="wish-btn" id="pdp-wish" aria-label="افزودن به علاقه‌مندی"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+    </div>
+    <div class="pdp-trust" style="margin-top:16px">
+      <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>ارسال ۲۴ ساعته تهران</div>
+      <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ضمانت اصالت کالا</div>
+      <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>۷ روز مرجوعی رایگان</div>
+      <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>پشتیبانی سایز</div>
+    </div>
+    <div id="pdp-ship-info" style="margin-top:14px"></div>
+  </div>
+  <aside class="pdp-buy">
+    <div style="background:var(--cream);border-radius:16px;padding:18px;font-size:13px">
+      <b style="display:block;margin-bottom:10px;color:var(--primary-dark)">خرید مطمئن با آویژه</b>
+      <p style="line-height:2">پرداخت امن، بسته‌بندی محرمانه و بهداشتی، و امکان تعویض سایز تا ۷ روز؛ با خیال راحت انتخاب کنید.</p>
+      <a class="btn btn-soft btn-block" style="margin-top:10px" href="returns.html">شرایط مرجوعی و تعویض</a>
+    </div>
+  </aside>
+</div>
+
+<div class="pdp-info">
+  <div class="tabs">
+    <button class="tab-btn on" data-tab="tab-desc">توضیحات محصول</button>
+    <button class="tab-btn" data-tab="tab-specs">مشخصات فنی</button>
+    <button class="tab-btn" data-tab="tab-care">جنس و نگهداری</button>
+    <button class="tab-btn" data-tab="tab-reviews">دیدگاه‌ها و امتیاز</button>
+  </div>
+  <div class="tab-panel on" id="tab-desc"><p id="pdp-desc"></p></div>
+  <div class="tab-panel" id="tab-specs"><table class="spec-table"><tbody id="pdp-specs"></tbody></table></div>
+  <div class="tab-panel" id="tab-care"><ul style="padding-inline-start:0;list-style:none"><div id="pdp-care"></div></ul></div>
+  <div class="tab-panel" id="tab-reviews">
+    <div class="rev-head"><div id="rev-summary"></div></div>
+    <div id="rev-list" style="margin-top:10px"></div>
+    <div class="rev-form">
+      <h3 style="font-size:15px;margin-bottom:12px">ثبت دیدگاه شما</h3>
+      <form id="rev-form" novalidate>
+        <div class="frow"><div class="fld"><label>نام شما <span class="req">*</span></label><input id="rev-name" required placeholder="مثلاً مریم احمدی"></div>
+        <div class="fld"><label>امتیاز شما</label><div class="rev-stars" id="rev-stars" style="margin-top:8px"></div></div></div>
+        <div class="fld"><label>دیدگاه شما <span class="req">*</span></label><textarea id="rev-text" required placeholder="تجربه‌تان از جنس، سایز و کیفیت را بنویسید…"></textarea></div>
+        <button class="btn btn-primary" type="submit">ثبت دیدگاه</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<section class="section"><div class="sec-head"><div><h2>محصولات مشابه</h2><div class="sub">از همین دسته‌بندی که مشتریان دوست داشته‌اند</div></div></div><div class="pgrid" id="rail-related"></div></section>
+<section class="section"><div class="sec-head"><div><h2>با این محصول، این‌ها هم ببینید</h2><div class="sub">پیشنهاد ترکیبی مکمل</div></div></div><div class="pgrid" id="rail-comp"></div></section>
+</div>
+
+<div class="modal-backdrop" id="sg-modal">
+  <div class="modal"><button class="modal-close" id="sg-close" aria-label="بستن">✕</button>
+  <div class="modal-head"><h3>جدول راهنمای سایزبندی</h3></div>
+  <div class="modal-body" id="sg-modal-body"></div></div>
+</div>
+</Layout>

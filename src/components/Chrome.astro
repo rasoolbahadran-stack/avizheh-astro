@@ -1,0 +1,129 @@
+---
+import { AVZ, icon } from '../data/catalog.js';
+const CATS = AVZ.CATS;
+const FREE_SHIP = AVZ.FREE_SHIP_MIN;
+const fa = (n) => String(n).replace(/\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[+d]);
+const money = (n) => fa(Math.round(n).toLocaleString('en-US').replace(/,/g, '٬'));
+---
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-side"><a href="/contact.html"><Fragment set:html={icon('headset')} />پشتیبانی: ۰۲۱-۹۱۰۰۰۲۰۰</a></div>
+    <div class="topbar-msgs">
+      <div class="topbar-msg on"><Fragment set:html={icon('truck')} />ارسال رایگان برای سفارش‌های بالای {money(FREE_SHIP)} تومان</div>
+      <div class="topbar-msg"><Fragment set:html={icon('gift')} />کد تخفیف ۱۵٪ اولین خرید: <b>WELCOME15</b></div>
+      <div class="topbar-msg"><Fragment set:html={icon('refresh')} />۷ روز ضمانت بازگشت کالا بدون قید و شرط</div>
+    </div>
+    <div class="topbar-side"><a href="/track-order.html"><Fragment set:html={icon('package')} />پیگیری سفارش</a></div>
+  </div>
+</div>
+<header class="header">
+  <div class="container">
+    <div class="header-mob">
+      <button class="hamburger" id="mnav-open" aria-label="باز کردن منو"><i></i><i></i><i></i></button>
+      <a class="logo" href="/index.html">
+        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E3B5F"></stop><stop offset="1" stop-color="#C0735A"></stop></linearGradient></defs><circle cx="24" cy="24" r="22" fill="none" stroke="url(#lgA)" stroke-width="2.4"></circle><path d="M24 10c5.2 3.4 8.4 8.6 8.4 14.2 0 6.4-3.9 10.6-8.4 13.8-4.5-3.2-8.4-7.4-8.4-13.8C15.6 18.6 18.8 13.4 24 10z" fill="url(#lgA)" opacity=".92"></path><path d="M24 15.5c2.9 2.2 4.7 5.3 4.7 8.7 0 3.9-2.2 6.6-4.7 8.6-2.5-2-4.7-4.7-4.7-8.6 0-3.4 1.8-6.5 4.7-8.7z" fill="#FBF7F4" opacity=".9"></path></svg>
+        <span class="logo-text"><span class="logo-name">آویژه</span><span class="logo-en">AVIZHEH</span></span>
+      </a>
+      <div class="header-actions" style="margin-inline-start:auto">
+        <a class="hact" href="/account.html" aria-label="حساب کاربری"><Fragment set:html={icon('user')} /><span class="lbl">حساب</span></a>
+        <a class="hact" href="/wishlist.html" aria-label="علاقه‌مندی‌ها"><Fragment set:html={icon('heart')} /><span class="lbl">علاقه‌مندی</span><b class="badge-count" data-badge="wish">۰</b></a>
+        <a class="hact" href="/cart.html" aria-label="سبد خرید"><Fragment set:html={icon('cart')} /><span class="lbl">سبد</span><b class="badge-count" data-badge="cart">۰</b></a>
+      </div>
+    </div>
+    <a class="logo dk" href="/index.html" style="margin-inline-end:8px">
+      <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgA2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E3B5F"></stop><stop offset="1" stop-color="#C0735A"></stop></linearGradient></defs><circle cx="24" cy="24" r="22" fill="none" stroke="url(#lgA2)" stroke-width="2.4"></circle><path d="M24 10c5.2 3.4 8.4 8.6 8.4 14.2 0 6.4-3.9 10.6-8.4 13.8-4.5-3.2-8.4-7.4-8.4-13.8C15.6 18.6 18.8 13.4 24 10z" fill="url(#lgA2)" opacity=".92"></path><path d="M24 15.5c2.9 2.2 4.7 5.3 4.7 8.7 0 3.9-2.2 6.6-4.7 8.6-2.5-2-4.7-4.7-4.7-8.6 0-3.4 1.8-6.5 4.7-8.7z" fill="#FBF7F4" opacity=".9"></path></svg>
+      <span class="logo-text"><span class="logo-name">آویژه</span><span class="logo-en">AVIZHEH</span></span>
+    </a>
+    <form class="header-search" id="hsearch" action="/shop.html" role="search">
+      <Fragment set:html={icon('search')} />
+      <input type="search" id="hsearch-in" name="q" placeholder="جست‌وجو در بین محصولات آویژه…" aria-label="جست‌وجوی محصولات" autocomplete="off" />
+      <div class="search-suggest" id="suggest"></div>
+    </form>
+    <div class="header-actions dk">
+      <a class="hact" href="/account.html" aria-label="حساب کاربری"><Fragment set:html={icon('user')} /><span class="lbl">حساب</span></a>
+      <a class="hact" href="/wishlist.html" aria-label="علاقه‌مندی‌ها"><Fragment set:html={icon('heart')} /><span class="lbl">علاقه‌مندی</span><b class="badge-count" data-badge="wish">۰</b></a>
+      <a class="hact" href="/cart.html" aria-label="سبد خرید"><Fragment set:html={icon('cart')} /><span class="lbl">سبد</span><b class="badge-count" data-badge="cart">۰</b></a>
+    </div>
+    <div class="header-mob-search">
+      <form action="/shop.html" role="search"><Fragment set:html={icon('search')} />
+        <input type="search" name="q" placeholder="جست‌وجوی محصولات…" aria-label="جست‌وجوی محصولات" />
+      </form>
+    </div>
+  </div>
+</header>
+<nav class="mainnav" aria-label="منوی اصلی">
+  <div class="container">
+    <div class="nav-item has-mega">
+      <button type="button" class="nav-link" aria-haspopup="true"><Fragment set:html={icon('menu')} />دسته‌بندی محصولات<Fragment set:html={icon('chev-down', 'chev')} /></button>
+      <div class="mega">
+        <div class="container">
+          <div class="mega-body">
+            {CATS.map((c) => (
+              <div class="mega-col">
+                <h4><a href={'/shop.html?cat=' + c.slug}>{c.name}</a></h4>
+                {c.subs.map((s) => <a href={'/shop.html?cat=' + c.slug + '&sub=' + s.slug}>{s.name}</a>)}
+              </div>
+            ))}
+            <a class="mega-promo" href="/shop.html?sale=1">
+              <img src="/assets/img/products/promo-tights.webp" alt="حراج ویژه آویژه" loading="lazy" width="800" height="800" />
+              <div><span class="chip chip-sale" style="margin-bottom:6px">تا ۵۵٪ تخفیف</span><b>حراج ویژه آویژه</b><span>پیشنهادهای شگفت‌انگیز امروز</span></div>
+            </a>
+          </div>
+        </div>
+        <div class="mega-foot">
+          <div class="container">
+            <a href="/shop.html"><Fragment set:html={icon('grid')} />مشاهده همه محصولات</a>
+            <a class="hot" href="/shop.html?sale=1"><Fragment set:html={icon('flame')} />پیشنهادهای شگفت‌انگیز</a>
+            <a href="/size-guide.html"><Fragment set:html={icon('ruler')} />راهنمای سایز</a>
+            <a href="/track-order.html"><Fragment set:html={icon('package')} />پیگیری سفارش</a>
+            <span class="mega-support"><Fragment set:html={icon('headset')} />مشاوره تخصصی سایز: <b>۰۲۱-۹۱۰۰۰۲۰۰</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item"><a class="nav-link" href="/index.html">خانه</a></div>
+    <div class="nav-item"><a class="nav-link" href="/shop.html">فروشگاه</a></div>
+    <div class="nav-item sale"><a class="nav-link" href="/shop.html?sale=1">شگفت‌انگیزها <Fragment set:html={icon('flame')} /></a></div>
+    <div class="nav-item"><a class="nav-link" href="/blog.html">وبلاگ</a></div>
+    <div class="nav-item"><a class="nav-link" href="/about.html">درباره ما</a></div>
+    <div class="nav-item"><a class="nav-link" href="/contact.html">تماس با ما</a></div>
+  </div>
+</nav>
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="mnav" id="mnav" aria-label="منوی موبایل">
+  <div class="mnav-head">
+    <a class="logo" href="/index.html">
+      <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true"><defs><linearGradient id="lgA3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8E3B5F"></stop><stop offset="1" stop-color="#C0735A"></stop></linearGradient></defs><circle cx="24" cy="24" r="22" fill="none" stroke="url(#lgA3)" stroke-width="2.4"></circle><path d="M24 10c5.2 3.4 8.4 8.6 8.4 14.2 0 6.4-3.9 10.6-8.4 13.8-4.5-3.2-8.4-7.4-8.4-13.8C15.6 18.6 18.8 13.4 24 10z" fill="url(#lgA3)" opacity=".92"></path><path d="M24 15.5c2.9 2.2 4.7 5.3 4.7 8.7 0 3.9-2.2 6.6-4.7 8.6-2.5-2-4.7-4.7-4.7-8.6 0-3.4 1.8-6.5 4.7-8.7z" fill="#FBF7F4" opacity=".9"></path></svg>
+      <span class="logo-text"><span class="logo-name">آویژه</span><span class="logo-en">AVIZHEH</span></span>
+    </a>
+    <button class="mnav-close" id="mnav-close" aria-label="بستن منو"><Fragment set:html={icon('x')} /></button>
+  </div>
+  <div class="mnav-body">
+    {CATS.map((c) => (
+      <div class="mnav-group">
+        <button type="button">{c.name}<Fragment set:html={icon('chev-down')} /></button>
+        <div class="mnav-sub">
+          <a href={'/shop.html?cat=' + c.slug} style="color:var(--primary);font-weight:700">همه محصولات {c.short}</a>
+          {c.subs.map((s) => <a href={'/shop.html?cat=' + c.slug + '&sub=' + s.slug}>{s.name}</a>)}
+        </div>
+      </div>
+    ))}
+    <div class="mnav-extra">
+      <a class="hot" href="/shop.html?sale=1"><Fragment set:html={icon('flame')} />پیشنهادهای شگفت‌انگیز</a>
+      <a href="/wishlist.html"><Fragment set:html={icon('heart')} />علاقه‌مندی‌ها</a>
+      <a href="/track-order.html"><Fragment set:html={icon('package')} />پیگیری سفارش</a>
+      <a href="/size-guide.html"><Fragment set:html={icon('ruler')} />راهنمای سایز</a>
+      <a href="/about.html"><Fragment set:html={icon('info')} />درباره آویژه</a>
+      <a href="/contact.html"><Fragment set:html={icon('headset')} />تماس و پشتیبانی</a>
+    </div>
+  </div>
+  <div class="mnav-foot">آویژه — تخصصی پوشاک و لباس زیر</div>
+</aside>
+<div class="bottombar">
+  <div class="container">
+    <a class="bb-item" href="/index.html"><Fragment set:html={icon('home')} /><span>خانه</span></a>
+    <a class="bb-item" href="/shop.html"><Fragment set:html={icon('grid')} /><span>فروشگاه</span></a>
+    <a class="bb-item" href="/cart.html"><Fragment set:html={icon('cart')} /><span>سبد</span><b class="badge-count" data-badge="cart">۰</b></a>
+    <a class="bb-item" href="/account.html"><Fragment set:html={icon('user')} /><span>حساب</span></a>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+---
+import Chrome from '../components/Chrome.astro';
+import Foot from '../components/Foot.astro';
+
+const {
+  title = 'آویژه | فروشگاه اینترنتی تخصصی پوشاک، لباس زیر و لباس راحتی',
+  desc = 'فروشگاه اینترنتی آویژه؛ خرید آنلاین لباس زیر زنانه و مردانه، لباس راحتی، گن و فرم‌دهنده، جوراب‌شلواری، لگ و اکسسوری پوشاک.',
+  keywords = '',
+  page = 'index.html',
+  shopCss = false,
+  canonical = '',
+  ld = null,
+  ldWebSite = false,
+  scripts = [],
+} = Astro.props;
+const SITE = 'https://avizheh.example';
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'آویژه',
+  url: SITE + '/',
+  potentialAction: { '@type': 'SearchAction', target: SITE + '/shop.html?q={search_term_string}', 'query-input': 'required name=search_term_string' },
+};
+---
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <title>{title}</title>
+  <meta name="description" content={desc} />
+  {keywords ? <meta name="keywords" content={keywords} /> : null}
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/assets/fonts/Vazirmatn-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/Vazirmatn-Bold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  {shopCss && <link rel="stylesheet" href="/assets/css/shop.css" />}
+  {canonical && <link rel="canonical" href={SITE + '/' + canonical} />}
+  {ld && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
+  {ldWebSite && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
+</head>
+<body data-page={page}>
+  <Chrome />
+  <slot />
+  <Foot />
+  <script is:inline src="/assets/js/data.js"></script>
+  <script is:inline src="/assets/js/icons.js"></script>
+  <script is:inline src="/assets/js/utils.js"></script>
+  <script is:inline src="/assets/js/main.js"></script>
+  {scripts.map((s) => <script is:inline src={'/assets/js/' + s}></script>)}
+</body>
+</html>

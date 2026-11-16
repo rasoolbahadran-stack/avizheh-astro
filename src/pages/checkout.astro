@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="ثبت سفارش | آویژه" desc="فرآیند سه‌مرحله‌ای ثبت سفارش: اطلاعات مشتری، آدرس و روش ارسال، بررسی نهایی و پرداخت نمایشی." page="checkout.html" shopCss scripts={['checkout.js']}>
+<div class="container"><nav class="breadcrumb" id="bc" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">ثبت سفارش</span></nav></div>
+<div class="container">
+  <div class="stepper" id="stepper">
+    <div class="step ck-step cur"><span class="step-dot">۱</span><span class="step-lbl">اطلاعات مشتری</span></div>
+    <div class="step-line"></div>
+    <div class="step ck-step"><span class="step-dot">۲</span><span class="step-lbl">آدرس و ارسال</span></div>
+    <div class="step-line"></div>
+    <div class="step ck-step"><span class="step-dot">۳</span><span class="step-lbl">بررسی و پرداخت</span></div>
+  </div>
+</div>
+<div class="container checkout-layout" id="ck-main">
+  <div>
+    <div class="ck-panel ck-pane" data-pane="1" id="pane1">
+      <h2>اطلاعات مشتری</h2>
+      <div class="frow">
+        <div class="fld"><label>نام و نام خانوادگی <span class="req">*</span></label><input id="ck-name" required placeholder="مثلاً سارا کریمی"></div>
+        <div class="fld"><label>شماره موبایل <span class="req">*</span></label><input id="ck-phone" type="tel" required placeholder="۰۹۱۲۰۰۰۰۰۰۰"><div class="hint">فرمت: ۰۹xxxxxxxxx</div></div>
+      </div>
+      <div class="fld"><label>ایمیل (برای ارسال رسید)</label><input id="ck-email" type="email" placeholder="you@example.com"></div>
+      <div class="form-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>پرداخت این نسخه نمایشی است؛ هیچ مبلغی برداشت نمی‌شود و اطلاعات فقط در مرورگر شما ذخیره می‌ماند.</span></div>
+      <div class="ck-nav"><button class="btn btn-primary btn-lg" id="ck-next1" type="button">ادامه به آدرس و ارسال</button></div>
+    </div>
+
+    <div class="ck-panel ck-pane hidden" data-pane="2" id="pane2">
+      <h2>آدرس تحویل و روش ارسال</h2>
+      <div class="frow">
+        <div class="fld"><label>استان <span class="req">*</span></label><input id="ck-province" required placeholder="تهران"></div>
+        <div class="fld"><label>شهر <span class="req">*</span></label><input id="ck-city" required placeholder="تهران"></div>
+      </div>
+      <div class="fld"><label>آدرس کامل <span class="req">*</span></label><input id="ck-address" required placeholder="خیابان، کوچه، ساختمان…"></div>
+      <div class="frow">
+        <div class="fld"><label>پلاک / واحد</label><input id="ck-plaque" placeholder="۱۲"></div>
+        <div class="fld"><label>کد پستی</label><input id="ck-postal" inputmode="numeric" placeholder="۱۹۶۸۸۴۳۲۱۵"></div>
+      </div>
+      <h2 style="margin-top:22px">روش ارسال</h2>
+      <div class="ship-methods" id="ship-methods"></div>
+      <div class="fld" style="margin-top:18px"><label>توضیحات سفارش (اختیاری)</label><textarea id="ck-note" placeholder="مثلاً: لطفاً بسته‌بندی هدیه استفاده شود"></textarea></div>
+      <div class="ck-nav"><button class="btn btn-ghost btn-lg" id="ck-back2" type="button">بازگشت</button><button class="btn btn-primary btn-lg" id="ck-next2" type="button">ادامه به بررسی نهایی</button></div>
+    </div>
+
+    <div class="ck-panel ck-pane hidden" data-pane="3" id="pane3">
+      <h2>بررسی نهایی سفارش</h2>
+      <div id="rv-box"></div>
+      <div class="pay-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg><span>با زدن دکمه زیر، پرداخت نمایشی انجام و سفارش شما در مرورگر ذخیره می‌شود.</span></div>
+      <div class="ck-nav"><button class="btn btn-ghost btn-lg" id="ck-back3" type="button">بازگشت</button><button class="btn btn-primary btn-lg" id="ck-submit" type="button">پرداخت و ثبت نهایی سفارش</button></div>
+    </div>
+  </div>
+  <aside class="cart-side" id="ck-side">
+    <div class="side-box"><h3>سفارش شما</h3><div id="ck-items"></div><div id="ck-totals" style="margin-top:10px"></div>
+    <a href="cart.html" style="font-size:12.5px;color:var(--primary);display:inline-flex;gap:5px;margin-top:10px">ویرایش سبد خرید ←</a></div>
+  </aside>
+</div>
+</Layout>

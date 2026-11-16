@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="سبد خرید | آویژه" desc="بررسی و ویرایش سبد خرید، اعمال کد تخفیف آزمایشی و محاسبه خودکار جمع سفارش با هزینه ارسال." page="cart.html" shopCss scripts={['cart.js']}>
+<div class="container"><nav class="breadcrumb" id="bc" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">سبد خرید</span></nav></div>
+<div class="container" style="margin-top:8px"><h1 style="font-size:clamp(21px,3vw,28px)">سبد خرید شما</h1></div>
+<div class="container cart-layout">
+  <div>
+    <div class="cart-list" id="cart-list"></div>
+    <div class="cart-empty hidden" id="cart-empty"></div>
+  </div>
+  <div class="cart-side" id="cart-side"></div>
+</div>
+</Layout>

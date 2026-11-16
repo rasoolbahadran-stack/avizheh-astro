@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="راهنمای انتخاب سایز | آویزه" desc="روش اندازه‌گیری، جدول سایزبندی زنانه و مردانه و ماشین‌حساب پیشنهاد سایز آویزه." page="size-guide.html" scripts={['content.js']}>
+<div class="page-hero"><div class="container">
+  <nav class="breadcrumb"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">راهنمای سایز</span></nav>
+  <h1>راهنمای انتخاب سایز</h1>
+  <p>با یک متر نواری و دو دقیقه وقت، سایز دقیق خود را پیدا کنید؛ ماشینه سایز ما هم در پایین صفحه آماده است.</p>
+</div></div>
+<div class="container section"><div class="prose" style="max-width:900px;margin-inline:auto">
+  <h2>۱. اندازه‌گیری را درست انجام دهید</h2>
+  <ul>
+    <li><b>دور سینه:</b> متر را روی برجسته‌ترین نقطه سینه، موازی زمین و بدون فشار بکشید.</li>
+    <li><b>دور کمر:</b> نازک‌ترین بخش بالای ناف؛ متر شل نباشد و بدن در حالت طبیعی باشد.</li>
+    <li><b>دور باسن:</b> پهن‌ترین نقطه باسن.</li>
+    <li>بهتر است متر را روی لباس نازک بکشید، نه روی لباس ضخیم.</li>
+  </ul>
+  <h2>۲. جدول سایزبندی</h2>
+  <div style="display:flex;justify-content:center;margin:18px 0"><div class="seg"><button data-seg="women" class="on" type="button">جدول زنانه</button><button data-seg="men" type="button">جدول مردانه</button></div></div>
+  <div id="sg-table"></div>
+  <h2>۳. ماشین‌حساب سایز آویژه</h2>
+  <form id="size-calc" style="max-width:520px">
+    <div class="frow">
+      <div class="fld"><label id="sc-l1">دور سینه (سانتی‌متر)</label><input id="sc-w" type="number" required min="50" max="160" placeholder="مثلاً ۸۸"></div>
+      <div class="fld"><label>دور کمر (سانتی‌متر)</label><input id="sc-h" type="number" required min="50" max="160" placeholder="مثلاً ۶۸"></div>
+    </div>
+    <button class="btn btn-primary" type="submit">پیشنهاد سایز بگیر</button>
+    <p id="size-calc-result" style="margin-top:14px;font-size:14px"></p>
+  </form>
+  <div class="size-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>جدول هر محصول ممکن است کمی متفاوت باشد؛ در صفحه هر محصول، جدول همان مدل را ببینید یا برای مشاوره رایگان با ۰۲۱-۹۱۰۰۰۲۰۰ تماس بگیرید.</span></div>
+</div></div>
+</Layout>

@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="فروشگاه آویژه | خرید لباس زیر، راحتی، گن و جوراب" desc="آرشیو کامل محصولات فروشگاه آویژه با فیلتر قیمت، سایز، رنگ، برند و موجودی؛ مرتب‌سازی بر اساس جدیدترین، پرفروش‌ترین و محبوب‌ترین." page="shop.html" shopCss scripts={['home.js','shop.js']}>
+<div class="container"><nav class="breadcrumb" id="bc" aria-label="مسیر صفحه"><a href="index.html">خانه</a></nav></div>
+<div class="container">
+  <div style="margin-top:6px"><h1 id="shop-title" style="font-size:clamp(22px,3vw,30px)">همه محصولات</h1>
+  <p id="shop-sub" style="font-size:13.5px;color:var(--ink-soft);margin-top:6px"></p></div>
+</div>
+<div class="container shop-layout">
+  <aside class="shop-side" id="shop-side">
+    <button class="btn btn-soft btn-block mob-open" id="filter-open" type="button">فیلتر محصولات</button>
+    <div id="shop-filters"></div>
+  </aside>
+  <div>
+    <div class="shop-toolbar">
+      <span class="count" id="shop-count"></span>
+      <span class="spacer"></span>
+      <label class="sort-lbl" for="shop-sort">مرتب‌سازی:</label>
+      <div class="sort-select">
+        <select id="shop-sort" aria-label="مرتب‌سازی محصولات">
+          <option value="new">جدیدترین</option>
+          <option value="best">پرفروش‌ترین</option>
+          <option value="rating">محبوب‌ترین</option>
+          <option value="cheap">ارزان‌ترین</option>
+          <option value="expensive">گران‌ترین</option>
+        </select>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+    </div>
+    <div id="chips-zone"></div>
+    <div class="pgrid" id="shop-grid"></div>
+    <div class="loadmore-wrap" id="loadmore-zone"></div>
+    <p id="cat-desc" style="font-size:13px;color:var(--ink-soft);line-height:2.1;background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin-top:30px"></p>
+  </div>
+</div>
+<div class="drawer-backdrop" id="fdrawer-backdrop"></div>
+<aside class="fdrawer" id="fdrawer" aria-label="فیلترها">
+  <div class="fdrawer-head"><h3>فیلترها</h3><button class="mnav-close" id="fdrawer-close" aria-label="بستن">✕</button></div>
+  <div class="fdrawer-body"></div>
+  <div class="fdrawer-foot"><button class="btn btn-primary btn-block" id="fdrawer-apply">مشاهده نتایج</button>
+  <button class="btn btn-ghost" id="fdrawer-clear">حذف فیلترها</button></div>
+</aside>
+</Layout>

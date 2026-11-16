@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AVZ } from '../../data/catalog.js';
+
+export function getStaticPaths() {
+  return AVZ.POSTS.map((po) => ({ params: { slug: po.id }, props: { po } }));
+}
+
+const { po } = Astro.props;
+const SITE = 'https://avizheh.example';
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: po.title,
+  image: SITE + '/' + po.img,
+  description: po.ex,
+  author: { '@type': 'Organization', name: 'مجله آویژه' },
+};
+---
+<Layout title={po.title + ' | وبلاگ آویژه'} desc={po.ex.slice(0, 155)} page={'blog/' + po.id + '.html'} canonical={'blog/' + po.id + '.html'} ld={ld} scripts={['content.js']}>
+  <div class="container" style="margin-top:20px"><nav class="breadcrumb"><a href="/index.html">خانه</a><span class="sep">›</span><a href="/blog.html">وبلاگ</a><span class="sep">›</span><span class="cur">{po.title}</span></nav></div>
+  <div class="container section">
+    <article class="article" id="bp">
+      <h1>{po.title}</h1>
+      <div class="article-meta"><span>{po.date}</span><span>{po.read}</span></div>
+      <img class="article-img" src={po.img} alt={po.title} width="1000" height="530" loading="lazy" />
+      <p class="article-lead">{po.ex}</p>
+      {po.body.map((par) => <p>{par}</p>)}
+    </article>
+    <div id="bp-related" style="max-width:860px;margin:30px auto 0"></div>
+  </div>
+</Layout>

@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { AVZ, money, faNum, icon } from '../../data/catalog.js';
+
+export function getStaticPaths() {
+  return AVZ.PRODUCTS.map((p) => ({ params: { id: p.id }, props: { p } }));
+}
+
+const { p } = Astro.props;
+const off = p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
+const totalStock = Object.keys(p.variants).reduce((a, k) => a + p.variants[k], 0);
+const SITE = 'https://avizheh.example';
+const firstImg = p.images[0];
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: p.name,
+  image: SITE + '/' + firstImg,
+  description: p.desc,
+  sku: p.id,
+  brand: { '@type': 'Brand', name: p.brandName },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating, reviewCount: p.rc },
+  offers: {
+    '@type': 'Offer',
+    url: SITE + '/product/' + p.id + '.html',
+    priceCurrency: 'IRR',
+    price: p.price * 10,
+    availability: totalStock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+  },
+};
+const badges = (off ? '<span class="chip chip-sale">٪' + faNum(off) + ' تخفیف</span>' : '')
+  + (p.isNew ? '<span class="chip chip-new">جدید</span>' : '')
+  + (totalStock > 0 ? '<span class="chip chip-gold">' + icon('check') + 'اصل و ضمانت‌دار</span>' : '');
+const priceHtml = money(p.price) + ' <small>تومان</small>'
+  + (p.old ? ' <del class="price-old" style="font-size:15px">' + money(p.old) + '</del> <span class="chip chip-sale">٪' + faNum(off) + ' تخفیف</span>' : '');
+---
+<Layout title={p.name + ' | آویژه'} desc={p.desc.slice(0, 155)} page={'product/' + p.id + '.html'} shopCss canonical={'product/' + p.id + '.html'} ld={ld} scripts={['home.js', 'product.js']}>
+  <div class="container"><nav class="breadcrumb" id="bc" aria-label="مسیر صفحه">
+    <a href="/index.html">خانه</a><span class="sep">›</span>
+    <a href={'/shop.html?cat=' + p.cat}>{p.catName}</a><span class="sep">›</span>
+    <span class="cur">{p.name}</span>
+  </nav></div>
+  <div class="container">
+    <div class="pdp" id="pdp">
+      <div class="gal">
+        <div class="gal-thumbs" id="gal-thumbs"></div>
+        <div class="gal-main" id="gal-main">
+          <img id="gal-main-img" src={firstImg} alt={p.name} width="1000" height="1333" />
+          <div class="gal-zoom-hint">برای بزرگ‌نمایی، ماوس را روی تصویر ببرید</div>
+          <div class="gal-badges" id="pdp-badges" set:html={badges} />
+        </div>
+      </div>
+      <div class="pdp-info-col" style="min-width:0">
+        <span class="pdp-brand" id="pdp-brand">{p.brandName}</span>
+        <h1 class="pdp-title" id="pdp-title">{p.name}</h1>
+        <div class="pdp-rating" id="pdp-rating"></div>
+        <div class="pdp-price" style="margin-top:16px"><span class="cur" id="pdp-price-cur" set:html={priceHtml} /></div>
+        <div style="margin-top:12px" id="pdp-stock"></div>
+        <div class="vgroup" style="margin-top:18px"><h4>انتخاب رنگ: <span class="sel-val" id="pdp-color-val"></span></h4><div class="vopts" id="pdp-colors"></div></div>
+        <div class="vgroup" style="margin-top:18px"><h4>انتخاب سایز: <span class="sel-val" id="pdp-size-val"></span>
+          <button type="button" id="pdp-sizeguide" style="color:var(--primary);font-weight:700;font-size:12px;display:inline-flex;gap:5px;align-items:center">جدول سایزبندی</button></h4>
+          <div class="vopts" id="pdp-sizes"></div></div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:20px">
+          <div class="qty"><button type="button" id="pdp-qty-minus" aria-label="کاهش تعداد">−</button><input id="pdp-qty-in" type="number" value="1" min="1" aria-label="تعداد" /><button type="button" id="pdp-qty-plus" aria-label="افزایش تعداد">+</button></div>
+          <span class="qty-hint">حداکثر خرید طبق موجودی انبار</span>
+        </div>
+        <div class="pdp-actions" style="margin-top:18px">
+          <button class="btn btn-primary btn-lg" id="pdp-buy-btn">افزودن به سبد خرید</button>
+          <button class="wish-btn" id="pdp-wish" aria-label="افزودن به علاقه‌مندی"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></button>
+        </div>
+        <div class="pdp-trust" style="margin-top:16px">
+          <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>ارسال ۲۴ ساعته تهران</div>
+          <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>ضمانت اصالت کالا</div>
+          <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 4v6h6"></path><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>۷ روز مرجوعی رایگان</div>
+          <div class="trust-it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>پشتیبانی سایز</div>
+        </div>
+        <div id="pdp-ship-info" style="margin-top:14px"></div>
+      </div>
+      <aside class="pdp-buy">
+        <div style="background:var(--cream);border-radius:16px;padding:18px;font-size:13px">
+          <b style="display:block;margin-bottom:10px;color:var(--primary-dark)">خرید مطمئن با آویژه</b>
+          <p style="line-height:2">پرداخت امن، بسته‌بندی محرمانه و بهداشتی، و امکان تعویض سایز تا ۷ روز؛ با خیال راحت انتخاب کنید.</p>
+          <a class="btn btn-soft btn-block" style="margin-top:10px" href="/returns.html">شرایط مرجوعی و تعویض</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="pdp-info">
+      <div class="tabs">
+        <button class="tab-btn on" data-tab="tab-desc" type="button">توضیحات محصول</button>
+        <button class="tab-btn" data-tab="tab-specs" type="button">مشخصات فنی</button>
+        <button class="tab-btn" data-tab="tab-care" type="button">جنس و نگهداری</button>
+        <button class="tab-btn" data-tab="tab-reviews" type="button">دیدگاه‌ها و امتیاز</button>
+      </div>
+      <div class="tab-panel on" id="tab-desc"><p id="pdp-desc">{p.desc}</p></div>
+      <div class="tab-panel" id="tab-specs">
+        <table class="spec-table">
+          <tbody id="pdp-specs">
+            {Object.keys(p.specs).map((k) => <tr><th>{k}</th><td>{p.specs[k]}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-panel" id="tab-care"><ul style="padding-inline-start:0;list-style:none"><div id="pdp-care">{p.care.map((c) => <li>{c}</li>)}</div></ul></div>
+      <div class="tab-panel" id="tab-reviews">
+        <div class="rev-head"><div id="rev-summary"></div></div>
+        <div id="rev-list" style="margin-top:10px"></div>
+        <div class="rev-form">
+          <h3 style="font-size:15px;margin-bottom:12px">ثبت دیدگاه شما</h3>
+          <form id="rev-form" novalidate>
+            <div class="frow"><div class="fld"><label>نام شما <span class="req">*</span></label><input id="rev-name" required placeholder="مثلاً مریم احمدی" /></div>
+            <div class="fld"><label>امتیاز شما</label><div class="rev-stars" id="rev-stars" style="margin-top:8px"></div></div></div>
+            <div class="fld"><label>دیدگاه شما <span class="req">*</span></label><textarea id="rev-text" required placeholder="تجربه‌تان از جنس، سایز و کیفیت را بنویسید…"></textarea></div>
+            <button class="btn btn-primary" type="submit">ثبت دیدگاه</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <section class="section"><div class="sec-head"><div><h2>محصولات مشابه</h2><div class="sub">از همین دسته‌بندی که مشتریان دوست داشته‌اند</div></div></div><div class="pgrid" id="rail-related"></div></section>
+    <section class="section"><div class="sec-head"><div><h2>با این محصول، این‌ها هم ببینید</h2><div class="sub">پیشنهاد ترکیبی مکمل</div></div></div><div class="pgrid" id="rail-comp"></div></section>
+  </div>
+
+  <div class="modal-backdrop" id="sg-modal">
+    <div class="modal"><button class="modal-close" id="sg-close" aria-label="بستن">✕</button>
+      <div class="modal-head"><h3>جدول راهنمای سایزبندی</h3></div>
+      <div class="modal-body" id="sg-modal-body"></div>
+    </div>
+  </div>
+</Layout>

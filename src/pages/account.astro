@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="پنل کاربری | آویزه" desc="ورود و ثبت‌نام نمایشی، مدیریت اطلاعات شخصی، آدرس‌ها، تاریخچه سفارش‌ها و علاقه‌مندی‌ها." page="account.html" shopCss scripts={['account.js']}>
+<div class="container"><nav class="breadcrumb" id="bc" aria-label="مسیر صفحه"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">حساب کاربری</span></nav></div>
+<div class="container" style="margin-top:8px"><h1 style="font-size:clamp(21px,3vw,28px)">پنل کاربری آویژه</h1></div>
+<div class="container" style="margin-top:18px">
+  <div id="auth-wrap"></div>
+  <div class="acc-layout" id="acc-layout">
+    <aside class="acc-side" id="acc-side">
+      <div class="acc-user"><span class="acc-ava" id="acc-ava">—</span><b id="acc-name">—</b><span id="acc-mail">—</span></div>
+      <div class="acc-menu">
+        <button type="button" data-pane="dash">داشبورد</button>
+        <button type="button" data-pane="orders">سفارش‌های من</button>
+        <button type="button" data-pane="addrs">آدرس‌ها</button>
+        <button type="button" data-pane="wishlist">علاقه‌مندی‌ها</button>
+        <button type="button" data-pane="profile">اطلاعات حساب</button>
+        <div class="sep"></div>
+        <button type="button" class="logout" id="acc-logout">خروج از حساب</button>
+      </div>
+    </aside>
+    <div class="acc-panel" id="acc-panel">
+      <div class="acc-pane on" data-pane="dash"><h2>داشبورد</h2><div class="stat-mini" id="dash-stats"></div><div id="dash-orders"></div></div>
+      <div class="acc-pane" data-pane="orders"><h2>سفارش‌های من</h2><div id="orders-list"></div><div id="order-detail" class="hidden"></div></div>
+      <div class="acc-pane" data-pane="addrs"><h2>آدرس‌های من</h2><div class="addr-grid" id="addr-grid"></div><button class="btn btn-primary" id="addr-add" style="margin-top:16px">افزودن آدرس جدید</button><div id="addr-form"></div></div>
+      <div class="acc-pane" data-pane="wishlist"><h2>علاقه‌مندی‌های من</h2><div class="wl-grid" id="wl-grid2"></div></div>
+      <div class="acc-pane" data-pane="profile"><h2>اطلاعات حساب</h2>
+        <form id="pf-form" novalidate style="max-width:520px">
+          <div class="fld"><label>نام و نام خانوادگی <span class="req">*</span></label><input id="pf-name" required></div>
+          <div class="frow"><div class="fld"><label>ایمیل <span class="req">*</span></label><input id="pf-email" type="email" required></div>
+          <div class="fld"><label>موبایل</label><input id="pf-phone" type="tel"></div></div>
+          <button class="btn btn-primary" type="submit">ذخیره تغییرات</button>
+        </form></div>
+    </div>
+  </div>
+</div>
+</Layout>

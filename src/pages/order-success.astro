@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="ثبت موفق سفارش | آویزه" desc="صفحه تأیید ثبت سفارش نمایشی با کد سفارش و مراحل پردازش." page="order-success.html" shopCss scripts={['checkout.js']}>
+<div class="container" style="margin-top:40px">
+  <div class="success-wrap">
+    <div class="success-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+    <h1>سفارش شما با موفقیت ثبت شد!</h1>
+    <p style="color:var(--ink-soft);font-size:14px">از خرید شما سپاسگزاریم. جزئیات سفارش به ایمیل شما ارسال شد (نمایشی) و می‌توانید از پنل کاربری یا صفحه پیگیری، وضعیت آن را ببینید.</p>
+    <div class="ocode" id="ocode">—</div>
+    <div id="success-timeline"></div>
+    <div class="success-sum">
+      <div class="sum-row"><span>تاریخ ثبت</span><b id="success-date">—</b></div>
+      <div class="sum-row"><span>تعداد اقلام</span><b id="success-count">—</b></div>
+      <div class="sum-row"><span>روش ارسال</span><b id="success-ship">—</b></div>
+      <div class="sum-row total"><span>مبلغ پرداخت‌شده (نمایشی)</span><b id="success-total">—</b></div>
+    </div>
+    <div class="success-actions">
+      <a class="btn btn-primary btn-lg" href="account.html">مشاهده در پنل کاربری</a>
+      <a class="btn btn-ghost btn-lg" href="shop.html">ادامه خرید</a>
+    </div>
+  </div>
+</div>
+</Layout>

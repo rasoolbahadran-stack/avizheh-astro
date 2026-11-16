@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="پیگیری سفارش | آویزه" desc="وضعیت لحظه‌ای سفارش خود را با کد سفارش پیگیری کنید." page="track-order.html" shopCss scripts={['checkout.js']}>
+<div class="page-hero"><div class="container">
+  <nav class="breadcrumb"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">پیگیری سفارش</span></nav>
+  <h1>پیگیری سفارش</h1>
+  <p>کد سفارش خود را وارد کنید تا وضعیت لحظه‌ای آن را ببینید؛ مثلاً AVZ-DEMO01 برای تست.</p>
+</div></div>
+<div class="container section">
+  <div class="track-box">
+    <form id="track-form" novalidate>
+      <div class="fld"><label>کد سفارش <span class="req">*</span></label><input id="track-code" required placeholder="AVZ-۱۲۳۴۵۶"></div>
+      <button class="btn btn-primary btn-lg btn-block" type="submit">پیگیری کن</button>
+    </form>
+    <div id="track-result"></div>
+  </div>
+</div>
+</Layout>
