@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
-// خروجی SSG با ساختار فایل‌محور: dist/shop.html ، dist/product/{id}.html و ...
+// خروجی SSG برای استقرار مستقل روی Cloudflare Pages
 export default defineConfig({
-  site: 'https://avizheh.example',
+  site: 'https://avizheh-showcase.pages.dev',
   build: { format: 'file' },
 });
