@@ -9,7 +9,7 @@ export function getStaticPaths() {
 const { p } = Astro.props;
 const off = p.old ? Math.round((1 - p.price / p.old) * 100) : 0;
 const totalStock = Object.keys(p.variants).reduce((a, k) => a + p.variants[k], 0);
-const SITE = 'https://avizheh.example';
+const SITE = 'https://avizheh-showcase.pages.dev';
 const firstImg = p.images[0];
 const ld = {
   '@context': 'https://schema.org',
