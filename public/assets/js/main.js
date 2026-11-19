@@ -225,11 +225,8 @@
         e.preventDefault();
         var email = (f.querySelector('input[type="email"]') || {}).value || '';
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { U.toast('لطفاً یک ایمیل معتبر وارد کنید', 'err'); return; }
-        var subs = U.sget('avz_newsletter', []);
-        if (subs.indexOf(email) < 0) subs.push(email);
-        U.sset('avz_newsletter', subs);
         f.reset();
-        U.toast('عضویت شما در خبرنامه آویژه ثبت شد؛ منتظر پیشنهادهای ویژه باشید', 'ok');
+        U.toast('خبرنامه در این نسخه نمایشی غیرفعال است؛ اطلاعاتی ذخیره نمی‌شود', 'info');
       });
     });
 
