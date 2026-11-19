@@ -2,32 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="تماس با ما | آویزه" desc="راه‌های ارتباط با پشتیبانی آویزه: تلفن، ایمیل، فرم تماس و اطلاعات فروشگاه حضوری." page="contact.html" scripts={['content.js']}>
-<div class="page-hero"><div class="container">
-  <nav class="breadcrumb"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">تماس با ما</span></nav>
-  <h1>در خدمت شما هستیم</h1>
-  <p>برای مشاوره سایز، پیگیری سفارش یا هر پرسش دیگر، از هر یک از راه‌های زیر با ما در تماس باشید.</p>
-</div></div>
-<div class="container section"><div class="contact-grid">
-  <div class="contact-form">
-    <h2 style="font-size:18px;margin-bottom:18px">فرم تماس سریع</h2>
-    <form id="contact-form" novalidate>
-      <div class="frow">
-        <div class="fld"><label>نام و نام خانوادگی <span class="req">*</span></label><input id="ct-name" required></div>
-        <div class="fld"><label>ایمیل <span class="req">*</span></label><input id="ct-email" type="email" required></div>
+<Layout title="اطلاعات نمونه | آویژه" desc="اطلاعات تماس نمونه در پروژه نمایشی آویژه." page="contact.html">
+  <div class="page-hero"><div class="container">
+    <nav class="breadcrumb"><a href="index.html">خانه</a><span class="sep">›</span><span class="cur">اطلاعات تماس</span></nav>
+    <h1>اطلاعات نمونه پروژه</h1>
+    <p>این صفحه بخشی از نمونه‌کار طراحی فروشگاه اینترنتی آویژه است.</p>
+  </div></div>
+  <div class="container section">
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h2 style="font-size:18px;margin-bottom:14px">فرم تماس غیرفعال</h2>
+        <div class="form-note">برای رعایت حریم خصوصی، این نسخه هیچ اطلاعات شخصی دریافت، ذخیره یا ارسال نمی‌کند.</div>
+        <div class="map-box" style="margin-top:18px"><b>اطلاعات تماس این پروژه فرضی است.</b><span>این نشانی و شماره‌ها برای آزمایش واقعی نیستند.</span></div>
       </div>
-      <div class="fld"><label>موضوع <span class="req">*</span></label><input id="ct-subject" required placeholder="مثلاً مشاوره سایز برای محصول دلخواه"></div>
-      <div class="fld"><label>متن پیام <span class="req">*</span></label><textarea id="ct-text" required placeholder="پیام خود را بنویسید…"></textarea></div>
-      <button class="btn btn-primary btn-lg" type="submit">ارسال پیام</button>
-    </form>
-    <div class="map-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><b>تهران، خیابان ولیعصر، پلاک ۲۱۰، طبقه ۳</b><span>مشاهده روی نقشه (نمایشی)</span></div>
+      <div class="contact-info">
+        <div class="ci"><div><b>هدف پروژه</b><p>نمایش رابط کاربری و امکانات یک فروشگاه استاتیک</p></div></div>
+        <div class="ci"><div><b>پرداخت و سفارش</b><p>در این نسخه غیرفعال است و هیچ تراکنش واقعی انجام نمی‌شود.</p></div></div>
+        <div class="ci"><div><b>حریم خصوصی</b><p>فرم ثبت پیام و ثبت‌نام در نسخه Pages غیرفعال شده‌اند.</p></div></div>
+      </div>
+    </div>
   </div>
-  <div class="contact-info">
-    <div class="ci"><span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><div><b>تلفن پشتیبانی</b><p>۰۲۱-۹۱۰۰۰۲۰۰ (۹ صبح تا ۹ شب)</p></div></div>
-    <div class="ci"><span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg></span><div><b>ایمیل</b><p>support@avizheh.ir — پاسخ حداکثر تا ۲۴ ساعت</p></div></div>
-    <div class="ci"><span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><b>ساعت کاری فروشگاه حضوری</b><p>شنبه تا چهارشنبه ۱۰ تا ۲۰ | پنجشنبه ۱۰ تا ۱۷</p></div></div>
-    <div class="ci"><span class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m22 2-7 20-4-9-9-4z"/></svg></span><div><b>شبکه‌های اجتماعی</b><p>اینستاگرام و تلگرام: @avizheh (نمایشی)</p></div></div>
-    <div class="ci" style="background:#FDF7FA"><span class="ci-icon" style="background:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span><div><b>مشاوره سایز رایگان</b><p>اندازه‌هایتان را برای ما بنویسید تا سایز دقیق را پیشنهاد دهیم.</p></div></div>
-  </div>
-</div></div>
 </Layout>
