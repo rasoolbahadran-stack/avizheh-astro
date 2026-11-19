@@ -31,11 +31,8 @@
     cf.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!U.validate(cf)) { U.toast('فیلدهای مشخص‌شده را کامل کنید', 'err'); return; }
-      var box = U.sget('avz_messages', []);
-      box.push({ name: U.$('#ct-name').value, email: U.$('#ct-email').value, subject: U.$('#ct-subject').value, text: U.$('#ct-text').value, at: Date.now() });
-      U.sset('avz_messages', box);
       cf.reset();
-      U.toast('پیام شما با موفقیت ثبت شد؛ حداکثر تا ۲۴ ساعت پاسخ می‌دهیم', 'ok');
+      U.toast('فرم تماس در نسخه نمایشی غیرفعال است؛ اطلاعاتی ذخیره نمی‌شود', 'info');
     });
   }
 
