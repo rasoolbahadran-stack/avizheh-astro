@@ -1,6 +1,6 @@
 import { AVZ } from '../data/catalog.js';
 
-const SITE = 'https://avizheh-showcase.pages.dev';
+const SITE = 'https://rasoolbahadran-stack.github.io/avizheh-astro';
 const STATIC = [
   'index.html', 'shop.html', 'product.html', 'cart.html', 'checkout.html',
   'order-success.html', 'account.html', 'wishlist.html', 'about.html', 'contact.html',
