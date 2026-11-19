@@ -16,7 +16,7 @@ async function walk(dir) {
 
     let html = await readFile(file, 'utf8');
     html = html
-      .replace(/<base\s+href=(["'])\/\1\s*\/?>/i, '<base href="' + BASE + '/>')
+      .replace(/<base\s+href=(["'])\/\1\s*\/?>/i, function () { return '<base href="' + BASE + '/>'; })
       .replace(/(\b(?:href|src|action|poster|data-src|data-href)\s*=\s*["'])\/(?!\/|avizheh-astro\/)/gi, function (_, prefix) { return prefix + BASE + '/'; })
       .replace(/url\((\s*["']?)\/(?!\/|avizheh-astro\/)/gi, function (_, prefix) { return 'url(' + prefix + BASE + '/'; })
       .replaceAll('https://avizheh-showcase.pages.dev', SITE);
