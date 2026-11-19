@@ -13,7 +13,7 @@ const {
   ldWebSite = false,
   scripts = [],
 } = Astro.props;
-const SITE = 'https://avizheh-showcase.pages.dev';
+const SITE = 'https://rasoolbahadran-stack.github.io/avizheh-astro';
 const websiteLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -27,7 +27,7 @@ const websiteLd = {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="/">
+  <base href="/avizheh-astro/">
   <title>{title}</title>
   <meta name="description" content={desc} />
   {keywords ? <meta name="keywords" content={keywords} /> : null}
@@ -44,6 +44,9 @@ const websiteLd = {
   {ldWebSite && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
 </head>
 <body data-page={page}>
+  <div role="note" style="background:#fff4e5;color:#704214;border-bottom:1px solid #f4d7a5;padding:10px 16px;text-align:center;font-size:13px;line-height:1.9">
+    این وب‌سایت صرفاً نمونه‌کار و دموی آموزشی است و به فروشگاه یا کسب‌وکار واقعی وابستگی ندارد؛ خرید، پرداخت، ثبت سفارش، عضویت و ارسال اطلاعات غیرفعال است.
+  </div>
   <Chrome />
   <slot />
   <Foot />
