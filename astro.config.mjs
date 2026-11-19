@@ -1,7 +1,14 @@
 import { defineConfig } from 'astro/config';
 
-// خروجی SSG برای استقرار مستقل روی Cloudflare Pages
+// GitHub Pages test deployment — static output only.
 export default defineConfig({
-  site: 'https://avizheh-showcase.pages.dev',
-  build: { format: 'file' },
+  site: 'https://rasoolbahadran-stack.github.io',
+  base: '/avizheh-astro',
+  output: 'static',
+  trailingSlash: 'ignore',
+  build: {
+    format: 'file',
+    inlineStylesheets: 'auto',
+  },
+  compressHTML: true,
 });
