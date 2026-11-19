@@ -25,6 +25,8 @@ jobs:
         uses: withastro/action@v6
 
   deploy:
+    # Test branch builds automatically; publishing is manual until approved.
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
